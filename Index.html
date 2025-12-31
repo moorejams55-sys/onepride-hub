@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>One Pride Hub</title>
+
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#0076B6" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <header class="header">
+    <div class="brand">
+      <div class="logo">🦁</div>
+      <div>
+        <div class="title">One Pride Hub</div>
+        <div class="subtitle">All Jeff Moore Lions content in one place</div>
+      </div>
+    </div>
+    <button id="installBtn" class="btn hidden">Install App</button>
+  </header>
+
+  <main class="wrap">
+    <section class="card">
+      <h2>Home</h2>
+      <p class="muted">
+        Tap a button to jump to Jeff’s official channels and book pages.
+      </p>
+
+      <div class="grid">
+        <a class="tile" href="https://x.com/moorejams55" target="_blank" rel="noreferrer">
+          <div class="tileTitle">X / Twitter</div>
+          <div class="tileDesc">@moorejams55</div>
+        </a>
+
+        <a class="tile" href="https://youtube.com/@moorejams55" target="_blank" rel="noreferrer">
+          <div class="tileTitle">YouTube</div>
+          <div class="tileDesc">The Jeff Moore Project</div>
+        </a>
+
+        <a class="tile" href="https://www.barnesandnoble.com/s/Honolulu%20Blue%20moon" target="_blank" rel="noreferrer">
+          <div class="tileTitle">Barnes & Noble</div>
+          <div class="tileDesc">Honolulu Blue Moon</div>
+        </a>
+
+        <a class="tile" href="https://www.facebook.com/share/1ATWhqctHn/" target="_blank" rel="noreferrer">
+          <div class="tileTitle">Facebook</div>
+          <div class="tileDesc">Posts + shares</div>
+        </a>
+
+        <a class="tile" href="https://www.linkedin.com/in/jeffrey-a-moore-1a95ba21" target="_blank" rel="noreferrer">
+          <div class="tileTitle">LinkedIn</div>
+          <div class="tileDesc">Jeffrey A. Moore</div>
+        </a>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Latest Hype (Starter)</h2>
+      <ul id="hypeList" class="list"></ul>
+      <p class="muted small">
+        Next step: we’ll pull these from your Google Sheet automatically (optional).
+      </p>
+    </section>
+
+    <footer class="footer muted">
+      <span>Built for Lions fans • #OnePride • #PoliticalLion</span>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

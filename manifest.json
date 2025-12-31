@@ -1,0 +1,15 @@
+{
+  "name": "One Pride Hub",
+  "short_name": "OnePride",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b1220",
+  "theme_color": "#0076B6",
+  "icons": [
+    {
+      "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABhUlEQVR4nO2aS07DMBCGv5bQ0iKQKpGQm0n0pQmGqQxg2m1bqzqX8bQy0h0pQ1o3m3bS0fQyJm9m3vWm2w4v8wHcJz0oYwQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ4gQ7gP8i0wq0v8w2QAAAABJRU5ErkJggg==",
+      "sizes": "64x64",
+      "type": "image/png"
+    }
+  ]
+}

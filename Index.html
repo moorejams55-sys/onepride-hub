@@ -5,72 +5,98 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>One Pride Hub</title>
 
-  <link rel="manifest" href="manifest.json" />
-  <meta name="theme-color" content="#0076B6" />
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#0069b1" />
 
-  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body { font-family: system-ui, Arial, sans-serif; margin: 0; background: #0b0f14; color: #fff; }
+    header { padding: 18px 16px; background: #0069b1; }
+    main { padding: 16px; max-width: 900px; margin: 0 auto; }
+    .card { background: #121a24; border: 1px solid #1f2c3d; border-radius: 14px; padding: 14px; margin: 12px 0; }
+    a { color: #9bd1ff; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .grid { display: grid; grid-template-columns: 1fr; gap: 10px; }
+    @media (min-width: 640px){ .grid { grid-template-columns: 1fr 1fr; } }
+    button { background:#fff; color:#000; border:0; padding:10px 12px; border-radius:10px; font-weight:700; cursor:pointer; }
+  </style>
 </head>
 
 <body>
-  <header class="header">
-    <div class="brand">
-      <div class="logo">🦁</div>
+  <header>
+    <div style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
       <div>
-        <div class="title">One Pride Hub</div>
-        <div class="subtitle">All Jeff Moore Lions content in one place</div>
+        <div style="font-size:20px; font-weight:800;">One Pride Hub</div>
+        <div style="opacity:.9; font-size:13px;">All your Lions content in one place</div>
       </div>
+      <button id="installBtn" style="display:none;">Install</button>
     </div>
-    <button id="installBtn" class="btn hidden">Install App</button>
   </header>
 
-  <main class="wrap">
-    <section class="card">
-      <h2>Home</h2>
-      <p class="muted">
-        Tap a button to jump to Jeff’s official channels and book pages.
-      </p>
-
+  <main>
+    <div class="card">
+      <div style="font-size:16px; font-weight:800; margin-bottom:8px;">Quick Links</div>
       <div class="grid">
-        <a class="tile" href="https://x.com/moorejams55" target="_blank" rel="noreferrer">
-          <div class="tileTitle">X / Twitter</div>
-          <div class="tileDesc">@moorejams55</div>
-        </a>
-
-        <a class="tile" href="https://youtube.com/@moorejams55" target="_blank" rel="noreferrer">
-          <div class="tileTitle">YouTube</div>
-          <div class="tileDesc">The Jeff Moore Project</div>
-        </a>
-
-        <a class="tile" href="https://www.barnesandnoble.com/s/Honolulu%20Blue%20moon" target="_blank" rel="noreferrer">
-          <div class="tileTitle">Barnes & Noble</div>
-          <div class="tileDesc">Honolulu Blue Moon</div>
-        </a>
-
-        <a class="tile" href="https://www.facebook.com/share/1ATWhqctHn/" target="_blank" rel="noreferrer">
-          <div class="tileTitle">Facebook</div>
-          <div class="tileDesc">Posts + shares</div>
-        </a>
-
-        <a class="tile" href="https://www.linkedin.com/in/jeffrey-a-moore-1a95ba21" target="_blank" rel="noreferrer">
-          <div class="tileTitle">LinkedIn</div>
-          <div class="tileDesc">Jeffrey A. Moore</div>
-        </a>
+        <div class="card">
+          <div style="font-weight:800;">X / Twitter</div>
+          <a href="https://x.com/moorejams55" target="_blank" rel="noopener">x.com/moorejams55</a>
+        </div>
+        <div class="card">
+          <div style="font-weight:800;">YouTube</div>
+          <a href="https://youtube.com/@moorejams55" target="_blank" rel="noopener">@moorejams55</a>
+        </div>
+        <div class="card">
+          <div style="font-weight:800;">Barnes & Noble</div>
+          <a href="https://www.barnesandnoble.com/s/Honolulu%20Blue%20moon" target="_blank" rel="noopener">Honolulu Blue Moon</a>
+        </div>
+        <div class="card">
+          <div style="font-weight:800;">Facebook</div>
+          <a href="https://www.facebook.com/share/1ATWhqctHn/" target="_blank" rel="noopener">Facebook page</a>
+        </div>
+        <div class="card">
+          <div style="font-weight:800;">LinkedIn</div>
+          <a href="https://www.linkedin.com/in/jeffrey-a-moore-1a95ba21" target="_blank" rel="noopener">Jeffrey A. Moore</a>
+        </div>
       </div>
-    </section>
+    </div>
 
-    <section class="card">
-      <h2>Latest Hype (Starter)</h2>
-      <ul id="hypeList" class="list"></ul>
-      <p class="muted small">
-        Next step: we’ll pull these from your Google Sheet automatically (optional).
-      </p>
-    </section>
-
-    <footer class="footer muted">
-      <span>Built for Lions fans • #OnePride • #PoliticalLion</span>
-    </footer>
+    <div class="card">
+      <div style="font-size:16px; font-weight:800; margin-bottom:8px;">Home (Placeholder)</div>
+      <div style="opacity:.9; line-height:1.4;">
+        Next we’ll add your “Home rows” from Google Sheets as:
+        <ul>
+          <li>Memes</li>
+          <li>Hype posts</li>
+          <li>Merch</li>
+          <li>Lions stories</li>
+        </ul>
+        If you upload your sheet here as a CSV, I’ll map it into the app automatically.
+      </div>
+    </div>
   </main>
 
-  <script src="app.js"></script>
+  <script>
+    // Register Service Worker (PWA offline basics)
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("/sw.js");
+    }
+
+    // Install prompt handling
+    let deferredPrompt;
+    const installBtn = document.getElementById("installBtn");
+
+    window.addEventListener("beforeinstallprompt", (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      installBtn.style.display = "inline-block";
+    });
+
+    installBtn.addEventListener("click", async () => {
+      if (!deferredPrompt) return;
+      deferredPrompt.prompt();
+      await deferredPrompt.userChoice;
+      deferredPrompt = null;
+      installBtn.style.display = "none";
+    });
+  </script>
 </body>
 </html>
